@@ -25,7 +25,7 @@ public class ReservaResource {
 	@Path("newReserva")
 	public String newReserva(){
 		Cliente cliente = clienteService.findById(2);
-		Reserva reserva = Reserva.of(cliente);
+		Reserva reserva = Reserva.of(0, cliente);
 
 		return  reservaService.newReserva(reserva);
 	}
