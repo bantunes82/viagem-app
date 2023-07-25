@@ -13,5 +13,5 @@ public interface ClienteService {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response newCliente(Cliente cliente);
+	Response newCliente(Cliente cliente);
 }
