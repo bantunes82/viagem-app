@@ -3,7 +3,6 @@ package com.bantunes82.cliente;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
-import jakarta.ws.rs.core.Response;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 @Path("/cliente-cli")
@@ -15,10 +14,9 @@ public class ClienteResource {
 
 	@GET
 	@Path("newCliente")
-	public Response newCliente(){
+	public String newCliente(){
 		Cliente cliente = Cliente.of(99, "Remoto");
-		String response = clienteService.newCliente(cliente);
 
-		return Response.status(Response.Status.CREATED).entity(response).build();
+		return clienteService.newCliente(cliente);
 	}
 }
