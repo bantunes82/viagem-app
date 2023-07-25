@@ -1,6 +1,7 @@
 package com.bantunes82.reserva;
 
 import com.bantunes82.cliente.Cliente;
+import com.bantunes82.cliente.ClienteService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -15,13 +16,18 @@ public class ReservaResource {
 	@RestClient
 	ReservaService reservaService;
 
+	@Inject
+	@RestClient
+	ClienteService clienteService;
+
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("newReserva")
 	public String newReserva(){
-		Cliente cliente = Cliente.of(2, "");
+		Cliente cliente = clienteService.findById(2);
+		Reserva reserva = Reserva.of(cliente);
 
-		return  reservaService.newReserva(cliente);
+		return  reservaService.newReserva(reserva);
 	}
 
 }

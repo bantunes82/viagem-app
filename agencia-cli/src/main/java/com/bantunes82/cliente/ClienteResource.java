@@ -17,7 +17,7 @@ public class ClienteResource {
 	@Path("newCliente")
 	public Response newCliente(){
 		Cliente cliente = Cliente.of(99, "Remoto");
-		Response response = clienteService.newCliente(cliente);
+		String response = clienteService.newCliente(cliente);
 
 		return Response.status(Response.Status.CREATED).entity(response).build();
 	}
