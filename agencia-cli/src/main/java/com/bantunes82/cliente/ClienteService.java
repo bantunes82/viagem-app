@@ -9,7 +9,7 @@ import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
-@RegisterRestClient(baseUri = "http://localhost:8080/cliente")
+@RegisterRestClient(baseUri = "http://localhost:8181/cliente")
 public interface ClienteService {
 
 	@GET
